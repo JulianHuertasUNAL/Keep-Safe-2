@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeepSafe">
+        <activity android:name=".IniciarViaje"></activity>
         <activity android:name=".LoginForm" />
         <activity android:name=".RegisterForm" />
         <activity android:name=".MainActivity">
