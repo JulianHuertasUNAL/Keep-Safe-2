@@ -14,5 +14,15 @@ public class LoginForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_form);
 
+        Button botonLoggear = (Button)findViewById(R.id.buttonLogin);
+
+        botonLoggear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent siguientePantalla = new Intent(LoginForm.this,IniciarViaje.class);
+                startActivity(siguientePantalla);
+            }
+        });
+
     }
 }
