@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">KeepSafe</string>
-    <string name="title_activity_pantallas_principales">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name='app_name'>Spinner</string>
+    <string name="keep_safe">Keep Safe</string>
+    <string name="cual_es_su_vehiculo">¿Cuál es su vehículo?</string>
+    <string name="signature_title">signature_title</string>
+    <string name="reply_title">reply_title</string>
+    <string name="sync_header">sync_header</string>
+    <string name="sync_title">sync_title</string>
+    <string name="messages_header">messages_header</string>
+    <string name="attachment_summary_off">attachment_summary_off</string>
+    <string name="attachment_summary_on">attachment_summary_on</string>
+    <string name="attachment_title">attachment_title</string>
 </resources>

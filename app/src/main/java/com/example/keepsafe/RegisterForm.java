@@ -14,6 +14,15 @@ public class RegisterForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_form);
 
+        Button botonRegistrar = (Button)findViewById(R.id.buttonRegister);
+
+        botonRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent siguientePantalla = new Intent(RegisterForm.this,VehicleForm.class);
+                startActivity(siguientePantalla);
+            }
+        });
 
     }
 }
