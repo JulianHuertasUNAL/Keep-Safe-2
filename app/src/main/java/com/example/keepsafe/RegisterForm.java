@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -23,7 +24,7 @@ import java.util.Map;
 
 public class RegisterForm extends AppCompatActivity {
 
-    EditText usuario, email, contraseña;
+    EditText usuario, email, contraseña, contraseñaRepeat;
     Button botonRegistrar;
 
     @Override
@@ -34,6 +35,7 @@ public class RegisterForm extends AppCompatActivity {
         usuario = (EditText)findViewById(R.id.editTextTextEmailAddress);
         email = (EditText)findViewById(R.id.editTextTextEmailAddress2);
         contraseña = (EditText)findViewById(R.id.editTextPassword);
+        contraseñaRepeat = (EditText)findViewById(R.id.editTextPassword2);
         botonRegistrar = (Button)findViewById(R.id.buttonRegister);
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -41,11 +43,18 @@ public class RegisterForm extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent siguientePantalla = new Intent(RegisterForm.this,VehicleForm.class);
                 //startActivity(siguientePantalla);
-                ejecutarPeticion("https://keepsafegestor.000webhostapp.com/registrar.php");
+                if(!usuario.getText().toString().isEmpty() | !email.getText().toString().isEmpty() | !contraseña.getText().toString().isEmpty() | !contraseñaRepeat.getText().toString().isEmpty()){
+                    ejecutarPeticion("https://keepsafegestor.000webhostapp.com/registrar.php");
+                    Toast.makeText(getApplicationContext(), "Datos registrados con exito!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
     }
+
+    // Método para ejecutar petición de registro de datos en el webservice.
 
     private void ejecutarPeticion(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -70,7 +79,10 @@ public class RegisterForm extends AppCompatActivity {
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        // Se agregan politicas de reintento para que no se cancele la conexión por tardanza.
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(15000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         requestQueue.add(stringRequest);
     }
 }
