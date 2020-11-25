@@ -8,18 +8,6 @@
     tools:context=".Ajustes">
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch6"
-        android:layout_width="44dp"
-        android:layout_height="45dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.822" />
-
-    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch5"
         android:layout_width="44dp"
         android:layout_height="45dp"
@@ -145,24 +133,6 @@
 
         app:layout_constraintVertical_bias="0.695" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="217dp"
-        android:layout_height="45dp"
-        android:gravity="center_horizontal"
-        android:text="Configuración 6"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-
-        app:layout_constraintVertical_bias="0.822" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="440dp"
@@ -260,4 +230,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.326" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/btn_variant"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:text="Cerrar sesion"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
