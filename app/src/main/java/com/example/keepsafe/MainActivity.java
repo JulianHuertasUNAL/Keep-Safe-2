@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
             ejecutarPeticion("https://keepsafegestor.000webhostapp.com/logear.php");
 
-
-
         }else{
             Intent pantallaInicial = new Intent(MainActivity.this, pantallaInicial.class);
             startActivity(pantallaInicial);

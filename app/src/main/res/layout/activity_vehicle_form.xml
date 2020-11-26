@@ -50,7 +50,7 @@
 
     <EditText
         android:id="@+id/editTextTextLicense"
-        android:layout_width="295dp"
+        android:layout_width="300dp"
         android:layout_height="32dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/edit_round"
@@ -73,9 +73,9 @@
 
     <EditText
         android:id="@+id/editTextTranLicence"
-        android:layout_width="278dp"
+        android:layout_width="300dp"
         android:layout_height="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/edit_round"
         android:drawableRight="@drawable/pass"
         android:ems="10"
@@ -90,15 +90,15 @@
         android:textColorHint="#5481c2"
         android:textColorLink="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextLicense" />
 
     <EditText
         android:id="@+id/editTextTecnoMecDate"
-        android:layout_width="336dp"
+        android:layout_width="300dp"
         android:layout_height="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/edit_round"
         android:drawableRight="@drawable/user"
         android:ems="10"
@@ -113,15 +113,15 @@
         android:textColorHint="#5481c2"
         android:textColorLink="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTranLicence" />
 
     <EditText
         android:id="@+id/editTextTecnoMecDate2"
-        android:layout_width="293dp"
+        android:layout_width="300dp"
         android:layout_height="29dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/edit_round"
         android:drawableRight="@drawable/user"
         android:ems="10"
@@ -136,6 +136,7 @@
         android:textColorHint="#5481c2"
         android:textColorLink="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTecnoMecDate" />
 
@@ -151,7 +152,9 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTecnoMecDate2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTecnoMecDate2"
+        app:layout_constraintVertical_bias="0.463" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

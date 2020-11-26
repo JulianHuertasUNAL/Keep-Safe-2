@@ -43,7 +43,6 @@ public class LoginForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!usuario.getText().toString().isEmpty() && !contraseña.getText().toString().isEmpty()){
-                    guardarPreferencias();
                     ejecutarPeticion("https://keepsafegestor.000webhostapp.com/logear.php");
                 }else{
                     Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT).show();
@@ -89,6 +88,7 @@ public class LoginForm extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response.equals("1")){
+                    guardarPreferencias();
                     Toast.makeText(getApplicationContext(), "Login Exitoso", Toast.LENGTH_SHORT).show();
                     Intent siguientePantalla = new Intent(LoginForm.this,IniciarViaje.class);
                     startActivity(siguientePantalla);

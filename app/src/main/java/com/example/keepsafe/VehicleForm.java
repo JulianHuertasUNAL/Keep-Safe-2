@@ -2,7 +2,9 @@ package com.example.keepsafe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,9 +60,6 @@ public class VehicleForm extends AppCompatActivity {
             public void onClick(View v) {
                 if(!licConduccion.getText().toString().isEmpty() && !licTransito.getText().toString().isEmpty() && !tecnomecanica.getText().toString().isEmpty() && !soat.getText().toString().isEmpty() && !spinner1.getSelectedItem().toString().equals("Seleccione su vehículo")){
                     ejecutarPeticion("https://keepsafegestor.000webhostapp.com/registrar.php");
-                    Toast.makeText(getApplicationContext(), "Datos registrados con exito!", Toast.LENGTH_SHORT).show();
-                    Intent siguientePantalla = new Intent(VehicleForm.this,IniciarViaje.class);
-                    startActivity(siguientePantalla);
                 }else{
                     Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT).show();
                 }
@@ -75,7 +74,10 @@ public class VehicleForm extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("MySQLConnection", "Datos registrados exitosamente!!");
+                Toast.makeText(getApplicationContext(), "Datos registrados con exito!", Toast.LENGTH_SHORT).show();
+                guardarPreferencias();
+                Intent siguientePantalla = new Intent(VehicleForm.this,IniciarViaje.class);
+                startActivity(siguientePantalla);
             }
         },new Response.ErrorListener(){
             @Override
@@ -104,5 +106,18 @@ public class VehicleForm extends AppCompatActivity {
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(15000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);
+    }
+
+    private void guardarPreferencias(){
+        SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String username = usuario;
+        String password = contraseña;
+
+        SharedPreferences.Editor editorPreferencias = preferencias.edit();
+        editorPreferencias.putString("usuario",username);
+        editorPreferencias.putString("contraseña",password);
+
+        editorPreferencias.commit();
     }
 }
