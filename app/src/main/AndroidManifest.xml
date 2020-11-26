@@ -17,6 +17,7 @@
         <activity android:name=".IniciarViaje" />
         <activity android:name=".LoginForm" />
         <activity android:name=".RegisterForm" />
+        <activity android:name=".pantallaInicial"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
