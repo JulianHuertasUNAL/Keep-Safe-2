@@ -24,14 +24,14 @@ public class IniciarViaje extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ajustes = new Intent(IniciarViaje.this,Ajustes.class);
-                startActivity(ajustes);
+                startActivity(ajustes.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
         perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent perfil = new Intent(IniciarViaje.this,Perfil.class);
-                startActivity(perfil);
+                startActivity(perfil.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 

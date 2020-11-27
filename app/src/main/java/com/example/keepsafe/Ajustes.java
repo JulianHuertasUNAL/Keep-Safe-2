@@ -37,7 +37,9 @@ public class Ajustes extends AppCompatActivity {
                 editorPreferencias.commit();
 
                 Intent siguientePantalla = new Intent(Ajustes.this,LoginForm.class);
+                siguientePantalla.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(siguientePantalla);
+                finish();
 
             }
         });
@@ -46,7 +48,7 @@ public class Ajustes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viaje = new Intent(Ajustes.this,IniciarViaje.class);
-                startActivity(viaje);
+                startActivity(viaje.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 
@@ -54,7 +56,7 @@ public class Ajustes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent perfil = new Intent(Ajustes.this,Perfil.class);
-                startActivity(perfil);
+                startActivity(perfil.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }

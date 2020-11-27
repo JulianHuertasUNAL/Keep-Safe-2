@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Intent pantallaInicial = new Intent(MainActivity.this, pantallaInicial.class);
             startActivity(pantallaInicial);
+            finish();
         }
     }
 
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Login Exitoso", Toast.LENGTH_SHORT).show();
                     Intent siguientePantalla = new Intent(MainActivity.this,IniciarViaje.class);
                     startActivity(siguientePantalla);
+                    finish();
                 }else if(response.equals("0")){
                     Toast.makeText(getApplicationContext(), "Este usuario no existe", Toast.LENGTH_SHORT).show();
                 }

@@ -57,7 +57,7 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ajustes = new Intent(Perfil.this,Ajustes.class);
-                startActivity(ajustes);
+                startActivity(ajustes.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 
@@ -65,7 +65,7 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viaje = new Intent(Perfil.this,IniciarViaje.class);
-                startActivity(viaje);
+                startActivity(viaje.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }

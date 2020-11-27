@@ -47,7 +47,9 @@ public class RegisterForm extends AppCompatActivity {
                     siguientePantalla.putExtra("usuario",usuario.getText().toString());
                     siguientePantalla.putExtra("email",email.getText().toString());
                     siguientePantalla.putExtra("contraseña",contraseña.getText().toString());
+                    siguientePantalla.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(siguientePantalla);
+                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT).show();
                 }

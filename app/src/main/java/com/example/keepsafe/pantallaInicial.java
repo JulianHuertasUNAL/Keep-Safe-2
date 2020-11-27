@@ -21,7 +21,7 @@ public class pantallaInicial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent siguientePantalla = new Intent(pantallaInicial.this, LoginForm.class);
-                startActivity(siguientePantalla);
+                startActivity(siguientePantalla.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 
@@ -29,7 +29,7 @@ public class pantallaInicial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent siguientePantalla = new Intent(pantallaInicial.this, RegisterForm.class);
-                startActivity(siguientePantalla);
+                startActivity(siguientePantalla.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }

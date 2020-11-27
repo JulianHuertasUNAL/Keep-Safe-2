@@ -77,7 +77,7 @@ public class VehicleForm extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Datos registrados con exito!", Toast.LENGTH_SHORT).show();
                 guardarPreferencias();
                 Intent siguientePantalla = new Intent(VehicleForm.this,IniciarViaje.class);
-                startActivity(siguientePantalla);
+                startActivity(siguientePantalla.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         },new Response.ErrorListener(){
             @Override

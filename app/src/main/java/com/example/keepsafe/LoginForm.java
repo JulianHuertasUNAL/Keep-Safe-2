@@ -91,7 +91,9 @@ public class LoginForm extends AppCompatActivity {
                     guardarPreferencias();
                     Toast.makeText(getApplicationContext(), "Login Exitoso", Toast.LENGTH_SHORT).show();
                     Intent siguientePantalla = new Intent(LoginForm.this,IniciarViaje.class);
+                    siguientePantalla.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(siguientePantalla);
+                    finish();
                 }else if(response.equals("0")){
                     Toast.makeText(getApplicationContext(), "Este usuario no existe", Toast.LENGTH_SHORT).show();
                 }
