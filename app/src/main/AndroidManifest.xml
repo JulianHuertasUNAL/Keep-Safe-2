@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.keepsafe">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeepSafe">
-        <activity android:name=".VehicleForm"></activity>
+        <activity android:name=".ViajeIniciado" />
+        <activity android:name=".VehicleForm" />
         <activity android:name=".Ajustes" />
         <activity android:name=".Perfil" />
         <activity android:name=".IniciarViaje" />
         <activity android:name=".LoginForm" />
         <activity android:name=".RegisterForm" />
-        <activity android:name=".pantallaInicial"/>
+        <activity android:name=".pantallaInicial" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
