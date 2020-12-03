@@ -26,7 +26,7 @@
         android:fontFamily="sans-serif"
         android:text="KeepSafe"
         android:textColor="#FFFFFF"
-        android:textSize="75sp"
+        android:textSize="65sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
