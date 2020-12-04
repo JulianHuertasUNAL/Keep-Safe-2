@@ -30,7 +30,7 @@ import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.RationaleCallbacks, EasyPermissions.PermissionCallbacks {
-    private Context thisContext=this;
+    private Context thisContext = this;
     private FusedLocationProviderClient client;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
@@ -43,7 +43,7 @@ public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viaje_iniciado);
-        mediaPlayer=MediaPlayer.create(thisContext,R.raw.alarmatqm);
+        mediaPlayer = MediaPlayer.create(thisContext, R.raw.alarmatqm);
         client = LocationServices.getFusedLocationProviderClient(this);
         askForLocationPermission();
         createLocationRequest();
@@ -53,10 +53,10 @@ public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.
                 if (locationResult == null) {
                     return;
                 }
-                double speed = (locationResult.getLastLocation().getSpeed())*3.6;
+                double speed = (locationResult.getLastLocation().getSpeed()) * 3.6;
                 TextView txt = (TextView) findViewById(R.id.Speed);
                 txt.setText(speed + "k/h");
-                if (speed>1){
+                if (speed > 1) {
                     mediaPlayer.start();
                 }
             }
@@ -65,13 +65,34 @@ public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.
         Button cerrar = (Button) findViewById(R.id.terminarviaje);
         cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 finish();
 
             }
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        client.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+    }
+
+    protected void onDestroy () {
+        super.onDestroy();
+        client.removeLocationUpdates(locationCallback);
+    }
+    
     private void createLocationRequest() {
         locationRequest = LocationRequest.create();
         locationRequest.setInterval(1000);
@@ -104,28 +125,6 @@ public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.
 
     private boolean hasLocationPermission() {
         return EasyPermissions.hasPermissions(this, Manifest.permission.ACCESS_FINE_LOCATION);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        client.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        client.removeLocationUpdates(locationCallback);
     }
 
     @Override
