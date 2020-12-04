@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeepSafe">
-        <activity android:name=".ViajeIniciado" />
         <activity android:name=".VehicleForm" />
         <activity android:name=".Ajustes" />
         <activity android:name=".Perfil" />
