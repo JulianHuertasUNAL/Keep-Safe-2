@@ -19,7 +19,7 @@ public class IniciarViaje extends AppCompatActivity {
 
         Button perfil = (Button)findViewById(R.id.perfil);
         Button ajustes = (Button)findViewById(R.id.configuracion);
-
+        ImageButton iniciarViaje =(ImageButton)findViewById(R.id.imageButton3);
         ajustes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +32,13 @@ public class IniciarViaje extends AppCompatActivity {
             public void onClick(View v) {
                 Intent perfil = new Intent(IniciarViaje.this,Perfil.class);
                 startActivity(perfil.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            }
+        });
+        iniciarViaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iniciarViaje = new Intent(IniciarViaje.this,ViajeIniciado.class);
+                startActivity(iniciarViaje.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 

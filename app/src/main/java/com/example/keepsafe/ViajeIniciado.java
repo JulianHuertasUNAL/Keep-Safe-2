@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,17 +30,20 @@ import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.RationaleCallbacks, EasyPermissions.PermissionCallbacks {
-
+    private Context thisContext=this;
     private FusedLocationProviderClient client;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
+    private MediaPlayer mediaPlayer;
     private static final int LOCATION_PERMISSION = 124;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viaje_iniciado);
-
+        mediaPlayer=MediaPlayer.create(thisContext,R.raw.alarmatqm);
         client = LocationServices.getFusedLocationProviderClient(this);
         askForLocationPermission();
         createLocationRequest();
@@ -46,11 +53,23 @@ public class ViajeIniciado extends AppCompatActivity implements EasyPermissions.
                 if (locationResult == null) {
                     return;
                 }
-                float speed = locationResult.getLastLocation().getSpeed();
+                double speed = (locationResult.getLastLocation().getSpeed())*3.6;
                 TextView txt = (TextView) findViewById(R.id.Speed);
-                txt.setText(speed + "m/s");
+                txt.setText(speed + "k/h");
+                if (speed>1){
+                    mediaPlayer.start();
+                }
             }
         };
+
+        Button cerrar = (Button) findViewById(R.id.terminarviaje);
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                finish();
+
+            }
+        });
     }
 
     private void createLocationRequest() {

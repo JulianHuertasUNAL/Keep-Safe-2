@@ -45,20 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="194dp"
-        android:layout_height="196dp"
-        android:background="#00F6F6F6"
-        android:scaleType="centerCrop"
-        android:tint="#A845C9DA"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.427"
-        app:srcCompat="@android:drawable/ic_media_play" />
+
 
     <TextView
         android:id="@+id/textView7"
@@ -111,5 +98,22 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="194dp"
+        android:layout_height="196dp"
+        android:background="@android:drawable/ic_media_play"
+        android:scaleType="centerCrop"
+        android:tint="#A845C9DA"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.427"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
